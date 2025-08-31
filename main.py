@@ -1,47 +1,59 @@
-import os   # unused import
+"""Simple math operations and class demo for pylint workflow."""
+
 import math
 
-x = 5
-Y = 10   # bad naming style
 
-def addNumbers(a,b): # bad function name
-  return a+b   # wrong indentation (2 spaces)
+def add_numbers(a: int, b: int) -> int:
+    """Return sum of two integers."""
+    return a + b
 
-def Subtract(a, b):  # bad function name
-    result = a - b
-    return result
 
-def multiply(a, b):
-    temp = a * b
-    unused = 100   # unused variable
-    return temp
+def subtract(a: int, b: int) -> int:
+    """Return difference of two integers."""
+    return a - b
 
-def divide(a, b):
+
+def multiply(a: int, b: int) -> int:
+    """Return product of two integers."""
+    return a * b
+
+
+def divide(a: int, b: int) -> float:
+    """Return division result, handles division by zero."""
     try:
         return a / b
-    except:
-        print("Something went wrong")  # bare except
-        return None
+    except ZeroDivisionError:
+        print("Division by zero is not allowed")
+        return float("inf")
 
-def circle_area(r):
-    return 3.14 * r * r   # magic number
 
-class myclass:   # bad class name
-    def __init__(self, v):
-        self.Value = v  # bad attribute naming
+def circle_area(radius: float) -> float:
+    """Return area of a circle given radius."""
+    return math.pi * radius * radius
 
-    def print_value(self):
-        print("Value is:", self.Value)
 
-def main():
-    a = 10
-    b = 0
-    print(addNumbers(a, b))
-    print(Subtract(a, b))
+class MyClass:
+    """Demo class with value attribute."""
+
+    def __init__(self, value: int):
+        self.value = value
+
+    def print_value(self) -> None:
+        """Print stored value."""
+        print("Value is:", self.value)
+
+
+def main() -> None:
+    """Run sample operations and class demo."""
+    a, b = 10, 0
+    print(add_numbers(a, b))
+    print(subtract(a, b))
     print(multiply(a, b))
     print(divide(a, b))
-    obj = myclass(42)
+    obj = MyClass(42)
     obj.print_value()
+
 
 if __name__ == "__main__":
     main()
+
