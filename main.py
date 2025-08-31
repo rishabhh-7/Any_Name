@@ -42,6 +42,14 @@ class MyClass:
         """Print stored value."""
         print("Value is:", self.value)
 
+    def get_value(self) -> int:
+        """Return stored value."""
+        return self.value
+
+    def set_value(self, new_value: int) -> None:
+        """Update stored value."""
+        self.value = new_value
+
 
 def main() -> None:
     """Run sample operations and class demo."""
@@ -50,10 +58,13 @@ def main() -> None:
     print(subtract(a, b))
     print(multiply(a, b))
     print(divide(a, b))
+    print(circle_area(5))
+
     obj = MyClass(42)
     obj.print_value()
+    obj.set_value(100)
+    print("Updated value:", obj.get_value())
 
 
 if __name__ == "__main__":
     main()
-
